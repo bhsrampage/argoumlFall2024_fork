@@ -76,7 +76,7 @@ public class DevActionFactory implements ContextActionFactory {
         }
         
         public void actionPerformed(ActionEvent arg0) {
-            // This method is not implemented yet and so throwing UnsupportedOperationException to indicate that the
+            // This method is not implemented yet. So throwing UnsupportedOperationException to indicate that the
             // action is not supported until it is fully developed.
             throw new UnsupportedOperationException("This action is not implemented yet.");
         }
