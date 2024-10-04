@@ -59,8 +59,10 @@ public class DevActionFactory implements ContextActionFactory {
     public List<TestAction> createContextPopupActions(Object element) {
 
         List<TestAction> list = null;
+
         if (Model.getFacade().isAClass(element)) {
             list = new ArrayList<TestAction>(1);
+
             Icon img = new ImageIcon(
                     ClassLoader.getSystemResource("org/argouml/dev/test.gif"));
             list.add(new TestAction("Test Action", img));
@@ -76,9 +78,9 @@ public class DevActionFactory implements ContextActionFactory {
         }
         
         public void actionPerformed(ActionEvent arg0) {
-            // This method is not yet implemented and so throwing UnsupportedOperationException to indicate that the
+            // This method is not implemented yet and so throwing UnsupportedOperationException to indicate that the
             // action is not supported until it is fully developed.
-            throw new UnsupportedOperationException("This action is not implemented yet.");
+            throw new UnsupportedOperationException("The action is not implemented yet.");
         }
         
     }
