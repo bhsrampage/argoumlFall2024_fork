@@ -76,6 +76,9 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
+import javax.xml.XMLConstants;
+import javax.xml.transform.*;
+
 
 import org.argouml.application.api.Argo;
 import org.argouml.application.helpers.ApplicationVersion;
@@ -465,6 +468,13 @@ public class UmlFilePersister extends AbstractFilePersister {
             xsltStreamSource.setSystemId(xsltUrl.toExternalForm());
 
             TransformerFactory factory = TransformerFactory.newInstance();
+            try {
+    factory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+    factory.setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, ""); // Disable external DTDs
+    factory.setAttribute(XMLConstants.ACCESS_EXTERNAL_STYLESHEET, ""); // Disable external stylesheets
+} catch (TransformerConfigurationException | IllegalArgumentException e) {
+    throw new OpenException("Failed to configure secure transformer factory", e);
+}
             Transformer transformer = factory.newTransformer(xsltStreamSource);
 
             File transformedFile = File.createTempFile("upgrade_" + version
