@@ -93,7 +93,7 @@ public final class UndoLogPanel extends JScrollPane {
         }
     }
 
-    void removeMemento(Command memento) {
+    void removeMemento(Command) {
         list.remove(list.getComponentCount() - 1);
         doLayout();
         validate();

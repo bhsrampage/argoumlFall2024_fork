@@ -74,8 +74,6 @@ public final class DeveloperModule implements ModuleInterface {
     /**
      * Wrapper.
      */
-//    private UndoManagerWrapper um = new UndoManagerWrapper();
-
     /**
      * This is creatable from the module loader.
      */
