@@ -70,6 +70,8 @@ import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.xml.XMLConstants;
+import javax.xml.transform.*;
 import javax.xml.transform.Result;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerException;
@@ -465,6 +467,13 @@ public class UmlFilePersister extends AbstractFilePersister {
             xsltStreamSource.setSystemId(xsltUrl.toExternalForm());
 
             TransformerFactory factory = TransformerFactory.newInstance();
+            try {
+                factory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+                factory.setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, ""); // Disable external DTDs
+                factory.setAttribute(XMLConstants.ACCESS_EXTERNAL_STYLESHEET, ""); // Disable external stylesheets
+            } catch (TransformerConfigurationException | IllegalArgumentException e) {
+                throw new OpenException("Failed to configure secure transformer factory", e);
+            }
             Transformer transformer = factory.newTransformer(xsltStreamSource);
 
             File transformedFile = File.createTempFile("upgrade_" + version
