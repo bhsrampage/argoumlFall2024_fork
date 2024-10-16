@@ -40,7 +40,11 @@ This project is the virtual project that includes all core subprojects.
   <properties>
     <!-- Used in parent to deploy site on github. -->
     <github.site.repositoryName>argouml</github.site.repositoryName>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
+
+
 
   <scm>
     <url>${github.site.org}/${github.site.repositoryName}</url>

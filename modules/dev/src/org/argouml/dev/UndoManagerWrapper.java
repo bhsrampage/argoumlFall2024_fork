@@ -49,45 +49,4 @@ public class UndoManagerWrapper {
      */
     public UndoManagerWrapper() {
     }
-
-//    /*
-//     * @see org.tigris.gef.undo.UndoManager#addMemento(org.tigris.gef.undo.Memento)
-//     */
-//    public void addMemento(Memento memento) {
-//        super.addMemento(memento);
-//        UndoLogPanel.getInstance().addMemento(memento);
-//    }
-//
-//    /**
-//     * @see org.tigris.gef.undo.UndoManager#empty()
-//     */
-//    public void empty() {
-//        super.empty();
-//        UndoLogPanel.getInstance().removeAll();
-//    }
-//
-//    /**
-//     * @see org.tigris.gef.undo.UndoManager#emptyUndo()
-//     */
-//    public void emptyUndo() {
-//        super.emptyUndo();
-//    }
-//
-//    /*
-//     * @see org.tigris.gef.undo.UndoManager#redo(org.tigris.gef.undo.Memento)
-//     */
-//    protected void redo(Memento memento) {
-//        UndoLogPanel.getInstance().addMemento(memento);
-//        super.redo(memento);
-//    }
-//
-//    /*
-//     * @see org.tigris.gef.undo.UndoManager#undo(org.tigris.gef.undo.Memento)
-//     */
-//    protected void undo(Memento memento) {
-//        UndoLogPanel.getInstance().removeMemento(memento);
-//        super.undo(memento);
-//    }
-//
-
 }
